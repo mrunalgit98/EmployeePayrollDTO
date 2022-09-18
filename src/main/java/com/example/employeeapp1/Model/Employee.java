@@ -76,7 +76,7 @@ public class Employee {
     }
 
 
-    public Employee(EmployeeDTO employeeModelDTO){
+    public Employee(int id,EmployeeDTO employeeModelDTO){
         this.employeeName=employeeModelDTO.getEmployeeName();
 
         this.department=employeeModelDTO.getDepartment();

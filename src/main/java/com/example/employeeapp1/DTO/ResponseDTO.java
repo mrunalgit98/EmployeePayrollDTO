@@ -28,8 +28,7 @@ public class ResponseDTO {
         this.data = data;
     }
 
-    public ResponseDTO() {
-    }
+
 
     @Override
     public String toString() {

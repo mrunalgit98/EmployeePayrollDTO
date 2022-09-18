@@ -43,8 +43,7 @@ public class EmployeeDTO {
 
     }
 
-    public EmployeeDTO() {
-    }
+
 
     @Override
     public String toString() {

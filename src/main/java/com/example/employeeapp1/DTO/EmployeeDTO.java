@@ -1,5 +1,14 @@
 package com.example.employeeapp1.DTO;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
+
 public class EmployeeDTO {
 
     private String employeeName;
@@ -7,50 +16,4 @@ public class EmployeeDTO {
     private String department;
     private long salary;
 
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(long salary) {
-        this.salary = salary;
-    }
-
-
-
-
-    public EmployeeDTO(String employeeName,  String department, long salary) {
-        this.employeeName = employeeName;
-        this.department = department;
-        this.salary = salary;
-
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "EmployeeDTO{" +
-                "employeeName='" + employeeName + '\'' +
-                ", department='" + department + '\'' +
-                ", salary=" + salary +
-                '}';
-    }
 }

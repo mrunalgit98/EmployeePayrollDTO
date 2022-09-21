@@ -2,8 +2,10 @@ package com.example.employeeapp1.DTO;
 
 import lombok.*;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
 
 
 @Data
@@ -17,7 +19,9 @@ public class EmployeeDTO {
     public String employeeName;
 
     public String department;
+    @Min(value=500,message="Min wage should be more than 500")
     public long salary;
+   
 
     public EmployeeDTO(String employeeName, String department, long salary) {
         this.employeeName = employeeName;

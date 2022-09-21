@@ -1,19 +1,36 @@
 package com.example.employeeapp1.DTO;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 
 @Data
-@NoArgsConstructor
-@ToString
+
 
 public class EmployeeDTO {
 
-    private String employeeName;
+    @NotEmpty(message = "not valid")
+   @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Employee Name is Invalid")
 
-    private String department;
-    private long salary;
+    public String employeeName;
 
+    public String department;
+    public long salary;
+
+    public EmployeeDTO(String employeeName, String department, long salary) {
+        this.employeeName = employeeName;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeDTO{" +
+                "employeeName='" + employeeName + '\'' +
+                ", department='" + department + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }

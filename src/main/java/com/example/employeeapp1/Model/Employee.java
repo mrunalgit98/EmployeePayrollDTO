@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import org.intellij.lang.annotations.Pattern;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,8 @@ public class Employee {
     @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+
     private String employeeName;
 
     private String department;

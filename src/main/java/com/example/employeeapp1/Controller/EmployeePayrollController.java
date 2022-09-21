@@ -58,9 +58,9 @@ public class EmployeePayrollController {
         return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
-    @PutMapping("/updateEmployee/{getId}")
-    public ResponseEntity<ResponseDTO> updateEmployee(@Valid@PathVariable long getId, @RequestBody EmployeeDTO employeeModelDTO){
-     ResponseDTO responseDTO= new ResponseDTO("Employee Details Updated successfully",  employeeService.updateEmployee(getId, employeeModelDTO));
+    @PutMapping("/updateEmployee/{empId}")
+    public ResponseEntity<ResponseDTO> updateEmployee(@Valid@PathVariable int empId, @RequestBody EmployeeDTO employeeModelDTO){
+     ResponseDTO responseDTO= new ResponseDTO("Employee Details Updated successfully",  employeeService.updateEmployee(empId, employeeModelDTO));
       return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 

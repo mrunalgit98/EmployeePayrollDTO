@@ -22,22 +22,25 @@ import javax.persistence.Id;
 public class Employee {
     @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int employeeid;
 
 
     private String employeeName;
 
     private String department;
-    private long salary;
+    private int salary;
 
-    public Employee(EmployeeDTO employeeModelDTO){
-        this.employeeName=employeeModelDTO.getEmployeeName();
+    public Employee(int empId){
+        this.employeeid=empId;
 
-        this.department=employeeModelDTO.getDepartment();
-        this.salary=employeeModelDTO.getSalary();
 
     }
 
 
+    public Employee(EmployeeDTO employeeModelDTO) {
+        this.employeeName=employeeModelDTO.getEmployeeName();
 
+        this.department=employeeModelDTO.getDepartment();
+        this.salary=employeeModelDTO.getSalary();
+    }
 }

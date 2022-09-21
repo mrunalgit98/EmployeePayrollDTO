@@ -2,6 +2,7 @@ package com.example.employeeapp1.Service;
 
 
 import com.example.employeeapp1.DTO.EmployeeDTO;
+import com.example.employeeapp1.Exception.EmployeeExceptionMessage;
 import com.example.employeeapp1.Model.Employee;
 import com.example.employeeapp1.Repository.EmployeePayrollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,19 +37,24 @@ public class EmployeePayrollService implements IEmployeeService {
     }
 
     @Override
-    public Employee getEmployeeDetails(int getId) {
-        Optional<Employee> employeeModel = repository.findById((long) getId);
-        return employeeModel.get();
+    public Employee getEmployeeDetails(int empId) {
+        Optional<Employee> employeeModel = repository.findById(empId);
+
+        return employeeModel.stream()
+                .filter(Employee ->Employee.getEmployeeid()==empId)
+                        .findFirst()
+                        .orElseThrow(()->new EmployeeExceptionMessage("Employee not found"));
+//               return employeeModel.get();
     }
 
     @Override
     public Employee deleteEmployee(int id) {
-        repository.deleteById((long) id);
+        repository.deleteById(id);
         return null;
     }
 
     @Override
-    public Employee updateEmployee(long getId, EmployeeDTO employeeModelDTO) {
+    public Employee updateEmployee(int getId, EmployeeDTO employeeModelDTO) {
         Optional<Employee> employeeModel1 = repository.findById(getId);
         if (employeeModel1.isPresent()) {
             employeeModel1.get().setEmployeeName(employeeModelDTO.getEmployeeName());

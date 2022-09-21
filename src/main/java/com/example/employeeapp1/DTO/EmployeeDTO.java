@@ -20,10 +20,10 @@ public class EmployeeDTO {
 
     public String department;
     @Min(value=500,message="Min wage should be more than 500")
-    public long salary;
-   
+    public int salary;
 
-    public EmployeeDTO(String employeeName, String department, long salary) {
+
+    public EmployeeDTO(String employeeName, String department, int salary) {
         this.employeeName = employeeName;
         this.department = department;
         this.salary = salary;

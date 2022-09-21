@@ -17,6 +17,6 @@ public interface IEmployeeService {
 
     Employee deleteEmployee(int id);
 
-    Employee updateEmployee(long getId, EmployeeDTO employeeModelDTO);
 
+    Employee updateEmployee(int getId, EmployeeDTO employeeModelDTO);
 }
